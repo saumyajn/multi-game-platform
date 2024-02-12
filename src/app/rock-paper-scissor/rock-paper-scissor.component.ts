@@ -1,11 +1,12 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { MaterialModule } from '../common/material.module';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../common/header/header.component';
 
 @Component({
   selector: 'app-rock-paper-scissor',
   standalone: true,
-  imports: [MaterialModule, CommonModule],
+  imports: [MaterialModule, CommonModule,HeaderComponent],
   templateUrl: './rock-paper-scissor.component.html',
   styleUrl: './rock-paper-scissor.component.scss'
 })

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from './common/home-page/home-page.component';
 import { RockPaperScissorComponent } from './rock-paper-scissor/rock-paper-scissor.component';
 
 export const routes: Routes = [
@@ -9,7 +9,11 @@ export const routes: Routes = [
         component: HomePageComponent
     },
     {
-        path: "rock-paper-scissors",
+        path: "home",
+        component: HomePageComponent
+    },
+    {
+        path: "games/rock-paper-scissors",
         component: RockPaperScissorComponent
     }
 ];

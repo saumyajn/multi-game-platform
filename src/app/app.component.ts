@@ -8,7 +8,7 @@ import { HeaderComponent } from './common/header/header.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, MaterialModule,RouterOutlet, RockPaperScissorComponent, HeaderComponent],
+  imports: [CommonModule, MaterialModule,RouterOutlet, RockPaperScissorComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

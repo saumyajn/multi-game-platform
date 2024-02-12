@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, SliderComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -13,6 +15,6 @@ export class HomePageComponent {
 
   }
   playRPS() {
-    this.router.navigate(['/rock-paper-scissors'])
+    this.router.navigate(['games/rock-paper-scissors'])
   }
 }

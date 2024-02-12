@@ -1,18 +1,9 @@
-$primary: mat-palette(indigo);
-$accent: mat-palette(pink, A200, A100, A400);
-$warn: mat-palette(red);
-
-$theme: mat-light-theme($primary, $accent, $warn);
-
 @keyframes animatedBck {
   from {
-
     background-position: 0 0;
-
   }
 
   to {
-
     background-position: -1000px 0;
   }
 
@@ -20,9 +11,10 @@ $theme: mat-light-theme($primary, $accent, $warn);
 
 .bg {
   background: url('../../../assets/images/puzzle-pieces.png');
-  filter: blur(2px) contrast(1);
+  filter: blur(1px) contrast(1);
   animation: animatedBck 100s linear infinite;
-  height: 150px;
+  background-size: 50%;
+  height: 130px;
   background-color: transparent;
   background-repeat: repeat-x;
 }
@@ -32,10 +24,26 @@ $theme: mat-light-theme($primary, $accent, $warn);
   width: 50%;
 }
 
+.icon-button-size {
+  transform: scale(1.4);
+  margin-left: 15px;
+  box-shadow: 2px 1px lightgray, inset 0 0 5px rgb(218, 216, 216);
+
+}
+
+.button-img {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .mat-toolbar {
   position: fixed;
   top: 40px;
   background-color: transparent;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
 }
 
 .spacer {
@@ -43,7 +51,7 @@ $theme: mat-light-theme($primary, $accent, $warn);
 }
 
 .app-title {
-  font-size: 1.5em;
-  margin-right: 40px;
+  font-size: 1.6em;
+  margin-right: 60px;
   font-weight: bold;
 }
