@@ -1,0 +1,49 @@
+$primary: mat-palette(indigo);
+$accent: mat-palette(pink, A200, A100, A400);
+$warn: mat-palette(red);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@keyframes animatedBck {
+  from {
+
+    background-position: 0 0;
+
+  }
+
+  to {
+
+    background-position: -1000px 0;
+  }
+
+}
+
+.bg {
+  background: url('../../../assets/images/puzzle-pieces.png');
+  filter: blur(2px) contrast(1);
+  animation: animatedBck 100s linear infinite;
+  height: 150px;
+  background-color: transparent;
+  background-repeat: repeat-x;
+}
+
+.mat-sidenav-container {
+  background-color: transparent;
+  width: 50%;
+}
+
+.mat-toolbar {
+  position: fixed;
+  top: 40px;
+  background-color: transparent;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.app-title {
+  font-size: 1.5em;
+  margin-right: 40px;
+  font-weight: bold;
+}

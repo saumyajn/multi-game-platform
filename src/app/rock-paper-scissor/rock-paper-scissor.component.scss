@@ -1,0 +1,87 @@
+:host {
+    --bright-blue: oklch(51.01% 0.274 263.83);
+    --electric-violet: oklch(53.18% 0.28 296.97);
+    --french-violet: oklch(47.66% 0.246 305.88);
+    --vivid-pink: oklch(69.02% 0.277 332.77);
+    --hot-red: oklch(61.42% 0.238 15.34);
+    --orange-red: oklch(63.32% 0.24 31.68);
+    --red-purple-horizontal-gradient: linear-gradient(90deg,
+            red 0%,
+            pink 50%,
+            darkblue 100%);
+
+
+}
+
+main {
+    background: rgb(179, 218, 231);
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.divider {
+    width: 2px;
+    margin-inline: 0.5rem;
+    background: linear-gradient(#6b0574,#9198e5,#2330c2);
+}
+
+.user-selection {
+    cursor: pointer;
+}
+
+.comp-selection{
+    cursor: default;
+    button{
+        cursor: default;
+    }
+}
+.row {
+    justify-content: space-around;
+}
+
+.img-wrap {
+    position: relative;
+    width: 16vw;
+}
+
+.img-wrap:hover .png-image {
+    opacity: 0.6;
+}
+
+.img-wrap:hover .middle-text {
+    opacity: 1;
+}
+
+.img-text {
+    background-color: #a16da7;
+    color: white;
+    font-size: 15px;
+    padding: 16px 3px;
+}
+
+.middle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    opacity: 0;
+    transition: .5s ease;
+    transform: translate(-25%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.png-image {
+    opacity: 1;
+    display: block;
+    padding: 20px;
+    margin: 20px;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    width: 100%;
+    background: rgba(138, 178, 191, 0.726);
+    border-radius: 20%;
+    box-shadow: 4px 2px 4px 2px rgba(166, 201, 221, 0.785);
+}

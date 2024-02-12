@@ -1,0 +1,25 @@
+<!-- app-header.component.html -->
+<div class="bg"></div>
+  <mat-toolbar>
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <span class="app-title">Game zOne</span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" autosize>
+    <mat-sidenav #sidenav mode="side" [opened]="isSidenavOpen">
+      <!-- Add your navigation links here -->
+      <mat-nav-list>
+        <a mat-list-item routerLink="/">Home</a>
+        <a mat-list-item routerLink="/about">About</a>
+        <a mat-list-item routerLink="/contact">Contact</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
