@@ -1,12 +1,13 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
-import { MaterialModule } from '../common/material.module';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../common/header/header.component';
+import { HeaderComponent } from '../../header/header.component';
+import { MaterialModule } from '../../material.module';
+
 
 @Component({
   selector: 'app-rock-paper-scissor',
   standalone: true,
-  imports: [MaterialModule, CommonModule,HeaderComponent],
+  imports: [MaterialModule, CommonModule, HeaderComponent],
   templateUrl: './rock-paper-scissor.component.html',
   styleUrl: './rock-paper-scissor.component.scss'
 })
@@ -36,7 +37,7 @@ export class RockPaperScissorComponent implements OnChanges {
     }
     if (user === 'rock' && comp == 'scissor' || user === 'scissor' && comp == 'paper' || user === 'paper' && comp == 'rock')
       console.log('you win')
-    else 
-    console.log("you loose")
+    else
+      console.log("you loose")
   }
 }
