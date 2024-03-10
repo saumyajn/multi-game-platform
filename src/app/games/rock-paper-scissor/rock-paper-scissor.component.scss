@@ -1,5 +1,6 @@
 @import "../../../styles.scss";
 $config: mat-typography-config();
+
 :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -23,6 +24,17 @@ main {
     margin: 0px;
 }
 
+.score {
+    padding: 10px;
+    margin: auto;
+    inline-size: max-content;
+    border-radius: 50%;
+    border: 2px solid rgba(138, 178, 191);
+}
+
+.reset-button{
+    margin-top: 20px;
+}
 .divider {
     width: 2px;
     margin-inline: 0.5rem;
@@ -35,7 +47,6 @@ main {
 
 .comp-selection {
     cursor: default;
-
     button {
         cursor: default;
     }
@@ -47,7 +58,7 @@ main {
 
 .img-wrap {
     position: relative;
-    width: 16vw;
+    width: 15vw;
 }
 
 .img-wrap:hover .png-image {

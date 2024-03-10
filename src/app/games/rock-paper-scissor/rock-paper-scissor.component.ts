@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../header/header.component';
 import { MaterialModule } from '../../material.module';
@@ -11,33 +11,46 @@ import { MaterialModule } from '../../material.module';
   templateUrl: './rock-paper-scissor.component.html',
   styleUrl: './rock-paper-scissor.component.scss'
 })
-export class RockPaperScissorComponent implements OnChanges {
+export class RockPaperScissorComponent {
   defaultArr = ["rock", "paper", "scissor"];
   showUserSelection = false;
   userSelection = '';
-  compSelection = ''
+  compSelection = '';
+  winner = '';
+  userScore = signal(0);
+  compScore = signal(0)
   constructor() {
 
   }
-  ngOnChanges(): void {
 
-  }
   playGame(selection: string) {
     this.showUserSelection = true;
     this.userSelection = selection;
     this.runRandomGame();
     this.checkWinner(this.userSelection, this.compSelection)
   }
+
   runRandomGame() {
     return this.compSelection = this.defaultArr[Math.floor((Math.random() * this.defaultArr.length))]
   }
+
   checkWinner(user: string, comp: string) {
+
     if (user === comp) {
-      console.log("TIE")
+      this.winner = "It's a tie!"
     }
-    if (user === 'rock' && comp == 'scissor' || user === 'scissor' && comp == 'paper' || user === 'paper' && comp == 'rock')
-      console.log('you win')
-    else
-      console.log("you loose")
+    else if (user === 'rock' && comp == 'scissor' || user === 'scissor' && comp == 'paper' || user === 'paper' && comp == 'rock') {
+      this.userScore.update(val => val + 1)
+      this.winner = 'User wins!'
+
+    }
+    else {
+      this.compScore.update(val => val + 1);
+      this.winner = 'Computer wins!'
+    }
+  }
+  resetData() {
+    this.compScore.set(0);
+    this.userScore.set(0)
   }
 }
