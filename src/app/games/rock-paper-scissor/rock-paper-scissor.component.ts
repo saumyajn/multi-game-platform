@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../header/header.component';
 import { MaterialModule } from '../../material.module';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,15 +13,17 @@ import { MaterialModule } from '../../material.module';
   styleUrl: './rock-paper-scissor.component.scss'
 })
 export class RockPaperScissorComponent {
+  title: any;
   defaultArr = ["rock", "paper", "scissor"];
   showUserSelection = false;
   userSelection = '';
   compSelection = '';
   winner = '';
   userScore = signal(0);
-  compScore = signal(0)
-  constructor() {
-
+  compScore = signal(0);
+  constructor(private _ActivatedRoute: ActivatedRoute) {
+    this.title = this._ActivatedRoute.snapshot.queryParams['name'];
+    
   }
 
   playGame(selection: string) {

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent {
+  
   @ViewChild('templateRefName') el: ElementRef | any;
   offSetHeight = 150;
   isSidenavOpen = false;

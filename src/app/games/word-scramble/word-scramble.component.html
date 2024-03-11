@@ -1,0 +1,16 @@
+<app-header></app-header>
+<main>
+  <h1 class="center-align">{{ title }}!</h1>
+  <div class="container">
+    <div class="game-start center-align">
+      <p>To start, generate a new word</p>
+      <button mat-stroked-button color="accent" (click)="getRandomWord()">
+        Generate word
+      </button>
+    </div>
+    <div class="random-word-container center-align">
+      RANDOM WORD -
+      <p class="random-word center-align">{{ randomWord }}</p>
+    </div>
+  </div>
+</main>
