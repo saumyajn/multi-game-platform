@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent {
+  
   @ViewChild('templateRefName') el: ElementRef | any;
   offSetHeight = 150;
   isSidenavOpen = false;
@@ -21,16 +22,16 @@ export class HeaderComponent {
   onWindowScroll($event) {
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
       this.renderer.setStyle(this.el._elementRef.nativeElement, 'top', 0);
-      this.renderer.setStyle(this.el._elementRef.nativeElement, 'height', '80px');
+      this.renderer.setStyle(this.el._elementRef.nativeElement, 'height', '70px');
 
-      this.renderer.setStyle(this.el._elementRef.nativeElement, 'background', 'rgb(218,178,10,0.9)');
+      this.renderer.setStyle(this.el._elementRef.nativeElement, 'background', '#f5f4f4eb');
       // this.renderer.setStyle(this.el._elementRef.nativeElement, 'background', 'rgb(238,150,75,0.9)');
 
 
     }
     else {
       this.renderer.removeStyle(this.el._elementRef.nativeElement, 'background');
-      this.renderer.setStyle(this.el._elementRef.nativeElement, 'top', '60px')
+      this.renderer.setStyle(this.el._elementRef.nativeElement, 'top', '10px')
     }
   }
   toggleSidenav() {

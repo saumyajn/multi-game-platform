@@ -1,0 +1,20 @@
+<div class="slider">
+  <div>
+    <div (click)="goToPrevious()" class="leftArrow">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+    <div (click)="goToNext()" class="rightArrow">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </div>
+  </div>
+  <div
+    class="slide"
+    [ngStyle]="{ 'background-image': getCurrentSlideUrl() }"
+  > <h3 class="title">{{getCurrentSlideTitle()}}</h3>
+</div>
+  <div class="dotsContainer" >
+    <div class="dot" *ngFor="let slide of slides; let slideIndex = index" (click)="goToSlide(slideIndex)">-
+      <!-- <mat-icon>circle</mat-icon> -->
+    </div>
+  </div>
+</div>

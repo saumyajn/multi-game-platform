@@ -1,9 +1,13 @@
 <app-header></app-header>
 <main>
-  <h1>ROCK PAPER SCISSORS!</h1>
+  <h1 class="center-align">{{title}}!</h1>
   <div class="container">
     <div class="row">
       <div class="user-selection col-md-auto">
+        <div class="center-align">
+          <h3>User</h3>
+          <p class="score center-align">{{ userScore() }}</p>
+        </div>
         <!-- <h3>Select one</h3> -->
         <div class="row">
           <div class="img-wrap col" (click)="playGame('rock')">
@@ -33,6 +37,11 @@
       </div>
       <div class="divider" role="separator" aria-label="Divider"></div>
       <div class="comp-selection col-md-auto">
+        <div class="center-align">
+          <h3>Computer</h3>
+          <p class="score">{{ compScore() }}</p>
+        </div>
+
         <div class="row">
           <div class="img-wrap col">
             <img src="assets/images/rock.png" class="png-image" />
@@ -58,10 +67,14 @@
       </div>
     </div>
     @if(showUserSelection) {
-    <div class="selected">
-      <span>You selected {{ userSelection }}</span>
-      Computer got {{ compSelection }}
+    <div class="selected center-align">
+      <p>You selected {{ userSelection }}
+      Computer got {{ compSelection }}</p>
+      <span>{{winner }} </span>
     </div>
     }
+
+    <div class="center-align reset-button"> 
+      <button mat-stroked-button color="warn" (click)="resetData()">RESET</button></div>
   </div>
 </main>
