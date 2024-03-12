@@ -7,3 +7,13 @@
     font-family: "Madimi One", sans-serif;
 
 }
+@media (max-width: 600px) {
+    body {
+      width: 100%;
+    }
+  }
+  
+  html,body{
+    width: 100%;
+    height: 100%;
+  }

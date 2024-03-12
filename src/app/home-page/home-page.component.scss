@@ -23,7 +23,6 @@ h3 {
 .bg {
   background: url('../../assets/images/puzzle-pieces.png');
   filter: blur(2px);
-
   background-size: 50%;
   height: 14vh;
   transform: scaleY(-1);
@@ -31,4 +30,14 @@ h3 {
   bottom: 0;
   background-color: transparent;
   background-repeat: repeat-x;
+}
+@media (max-width: 768px) {
+  .games-link {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto ;
+    padding: 10px;
+    justify-content: space-evenly;
+  
+  }
 }

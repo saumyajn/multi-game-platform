@@ -1,8 +1,11 @@
-
-.random-word{
+.random-word {
     font-size: large;
     font-size: 6em;
-    position: relative;
-    width: 70px;
-    height: 20px;
+    // letter-spacing: 0.4rem;
+    width: fit-content;
+    text-shadow: 2px 2px #a16da7;
+    background: #ede7f6;
+    margin:3px;
+    padding:2px;
+    box-shadow: 2px 2px #a16da7;
 }

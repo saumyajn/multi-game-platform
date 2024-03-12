@@ -55,3 +55,21 @@
   font-weight: bold;
   filter: contrast(2);
 }
+
+@media (max-width: 600px) {
+  .puzzle-bg {
+    background: url('../../assets/images/puzzle-pieces.png');
+    // filter: blur(1px);
+    // animation: animatedBck 100s linear infinite;
+    background-size: 55%;
+    // width: min-content;
+    // height: 60vh;
+    // width:70%;
+    background-repeat: repeat-x ;
+  }
+  mat-toolbar{
+    // width: fit-content;
+    // margin: 0;
+    
+  }
+}
