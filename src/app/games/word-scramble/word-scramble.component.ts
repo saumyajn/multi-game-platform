@@ -16,7 +16,7 @@ import { MaterialModule } from '../../material.module';
 })
 export class WordScrambleComponent {
   title = '';
-  randomWord: string
+  randomWord
   constructor(private _ActivatedRoute: ActivatedRoute, private service: WordScrambleService) {
     this.title = this._ActivatedRoute.snapshot.queryParams['name'];
   }
@@ -31,11 +31,12 @@ export class WordScrambleComponent {
     //   }
     // })
     this.randomWord = this.shuffleWord('apple')
-    console.log(this.randomWord.length)
+
+
   }
 
   shuffleWord(word: string) {
-    return word.split('').sort(() => Math.random() - 0.5).join('')
+    return word.split('').sort(() => Math.random() - 0.5)
 
   }
 

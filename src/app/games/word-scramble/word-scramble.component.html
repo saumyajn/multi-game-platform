@@ -10,7 +10,11 @@
     </div>
     <div class="random-word-container center-align">
       RANDOM WORD -
-      <p class="random-word center-align">{{ randomWord }}</p>
+      <div >
+        <span class="random-word center-align" *ngFor="let letter of randomWord">
+          <span>{{ letter }}</span>
+        </span>
+      </div>
     </div>
   </div>
 </main>

@@ -10,10 +10,9 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$custom-topography: mat.define-typography-config(
-  $font-family: ""Madimi One", sans-serif",
-    
-    );
+$custom-topography: mat.define-typography-config($font-family: "" Madimi One", sans-serif",
+
+  );
 
 $multi-game-platform-primary: mat.define-palette(mat.$indigo-palette);
 $multi-game-platform-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
@@ -34,13 +33,21 @@ $multi-game-platform-theme: mat.define-light-theme((color: (primary: $multi-game
 // that you are using.
 
 
-:host{
+
+html,body{
+  margin:0;
+  padding: 0;
+  height: 100%;
+}
+:host {
   @include mat.all-component-themes($multi-game-platform-theme);
   font-weight: 100;
 }
-.center-align{
+
+.center-align {
   text-align: center;
 }
-.text-weight-less{
+
+.text-weight-less {
   font-weight: 100;
 }

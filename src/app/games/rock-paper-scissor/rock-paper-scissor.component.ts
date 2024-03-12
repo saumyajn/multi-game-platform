@@ -44,12 +44,12 @@ export class RockPaperScissorComponent {
     }
     else if (user === 'rock' && comp == 'scissor' || user === 'scissor' && comp == 'paper' || user === 'paper' && comp == 'rock') {
       this.userScore.update(val => val + 1)
-      this.winner = 'User wins!'
+      this.winner = 'YOU win!'
 
     }
     else {
       this.compScore.update(val => val + 1);
-      this.winner = 'Computer wins!'
+      this.winner = 'AI wins! Better Luck next time '
     }
   }
   resetData() {
