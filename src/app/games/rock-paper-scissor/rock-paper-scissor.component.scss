@@ -53,12 +53,19 @@ main {
 .img-wrap:hover .middle-text {
     opacity: 1;
 }
+.img-wrap:hover .png-image {
+    opacity: 0.6;
+}
 
 .img-text {
     background-color: #a16da7;
     color: white;
     font-size: 15px;
-    // padding: 16px 3px;
+}
+.selected{
+   .middle-text {
+        opacity: 1;
+    }
 }
 
 .middle-text {

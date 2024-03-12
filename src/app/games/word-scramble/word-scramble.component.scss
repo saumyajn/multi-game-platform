@@ -1,11 +1,19 @@
+@import '../../../styles.scss';
+
 .random-word {
     font-size: large;
     font-size: 6em;
-    // letter-spacing: 0.4rem;
     width: fit-content;
     text-shadow: 2px 2px #a16da7;
     background: #ede7f6;
-    margin:3px;
-    padding:2px;
+    margin: 3px;
+    padding: 2px;
     box-shadow: 2px 2px #a16da7;
+}
+
+.input-field {
+    margin-top: 20px;
+}
+button{
+    margin:10px
 }

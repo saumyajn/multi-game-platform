@@ -2,13 +2,19 @@
 <main>
   <h1 class="center-align">{{ title }}!</h1>
   <div class="container">
+    @if(showUserSelection) {
+      <div class="selected center-align">
+        <p>You selected {{ userSelection }}!  AI got {{ compSelection }}
+        !</p>
+        <span>{{ winner }} </span>
+      </div>
+      }
     <div class="row">
       <div class="user-selection">
         <div class="center-align">
           <h3>You</h3>
           <p class="score center-align">{{ userScore() }}</p>
         </div>
-        <!-- <h3>Select one</h3> -->
         <div class="row">
           <div class="img-wrap col-auto" (click)="playGame('rock')">
             <img src="assets/images/rock.png" class="png-image" />
@@ -39,21 +45,21 @@
           <p class="score">{{ compScore() }}</p>
         </div>
         <div class="row">
-          <div class="img-wrap col">
+          <div class="img-wrap col rock">
             <img src="assets/images/rock.png" class="png-image" />
             <div class="middle-text">
               <button mat-button class="img-text">Rock</button>
             </div>
           </div>
 
-          <div class="img-wrap col">
+          <div class="img-wrap col paper">
             <img src="assets/images/paper.png" class="png-image" />
             <div class="middle-text">
               <button mat-button class="img-text">Paper</button>
             </div>
           </div>
 
-          <div class="img-wrap col">
+          <div class="img-wrap col scissor">
             <img src="assets/images/scissor.png" class="png-image" />
             <div class="middle-text">
               <button mat-button class="img-text">Scissor</button>
@@ -62,13 +68,7 @@
         </div>
       </div>
     </div>
-    @if(showUserSelection) {
-    <div class="selected center-align">
-      <p>You selected {{ userSelection }}!  AI got {{ compSelection }}
-      !</p>
-      <span>{{ winner }} </span>
-    </div>
-    }
+   
 
     <div class="center-align reset-button">
       <button mat-stroked-button color="primary" (click)="resetData()">

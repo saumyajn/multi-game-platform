@@ -1,20 +1,39 @@
 <app-header></app-header>
 <main>
-  <h1 class="center-align">{{ title }}!</h1>
+ 
   <div class="container">
+    <h1 class="center-align">{{ title }}!</h1>
     <div class="game-start center-align">
       <p>To start, generate a new word</p>
       <button mat-stroked-button color="accent" (click)="getRandomWord()">
         Generate word
       </button>
+      @if(isScramble){
+      <button
+        class="align-right"
+        mat-stroked-button
+        color="primary"
+        (click)="checkWord()"
+      >
+        Check</button
+      >}
     </div>
+    @if(isScramble){
     <div class="random-word-container center-align">
-      RANDOM WORD -
-      <div >
-        <span class="random-word center-align" *ngFor="let letter of randomWord">
+      <mat-form-field class="input-field" color="accent">
+        <mat-label>Your Guess</mat-label>
+        <input (keyup.enter)="checkWord()" matInput [formControl]="wordForm" />
+      </mat-form-field>
+
+      <div>
+        <span
+          class="random-word center-align"
+          *ngFor="let letter of shuffledWordArr"
+        >
           <span>{{ letter }}</span>
         </span>
       </div>
     </div>
+    }
   </div>
 </main>
