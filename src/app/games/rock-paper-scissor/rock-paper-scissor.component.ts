@@ -67,7 +67,7 @@ export class RockPaperScissorComponent {
     }
     else {
       this.compScore.update(val => val + 1);
-      this.winner = 'AI wins! Better Luck next time '
+      this.winner = 'Computer wins! Better Luck next time '
     }
     setTimeout(()=>{
       let child = this.selection.getElementsByClassName(this.compSelection)
