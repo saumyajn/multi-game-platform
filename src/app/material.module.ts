@@ -7,13 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-    MatDialog,
-    MatDialogActions,
-    MatDialogClose,
-    MatDialogContent,
-    MatDialogTitle,
-  } from '@angular/material/dialog';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
     exports: [
@@ -25,6 +20,8 @@ import {
         MatGridListModule,
         MatInputModule,
         MatFormFieldModule, 
+        MatButtonToggleModule,
+        MatRippleModule
         ]
 })
 export class MaterialModule { }

@@ -6,16 +6,24 @@ import { Injectable } from '@angular/core';
 })
 export class WordScrambleService {
   API_KEY = "KgIN1vN9/UnplbJC5p2ZnQ==sfE58SmoDLoJljc5"
-  randomWordUrl = 'https://api.api-ninjas.com/v1/randomword';
+  randomWordUrl = 'https://random-word-api.herokuapp.com/word'
 
   constructor(private http: HttpClient) { }
 
-  getRandomWord() {
-    return this.http.get(this.randomWordUrl, {
-      headers: {
-        'X-Api-Key': this.API_KEY
-      }
-    })
+  getRandomWord(difficultyLevel) {
+    let url = '';
+    switch (difficultyLevel) {
+      case '0': url = this.randomWordUrl;
+        break;
+      case '1': url = `${this.randomWordUrl}?length=5`;
+        break;
+      case '2': url = `${this.randomWordUrl}?length=7`;
+        break;
+      case '3': url = `${this.randomWordUrl}?length=9`;
+        break;
+      default: url = this.randomWordUrl; break;
+    }
+    return this.http.get(url)
   }
 }
 

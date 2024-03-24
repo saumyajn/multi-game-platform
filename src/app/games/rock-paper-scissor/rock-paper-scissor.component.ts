@@ -47,9 +47,7 @@ export class RockPaperScissorComponent {
 
   runRandomGame() {
 
-
     this.compSelection = this.compSelection = this.defaultArr[Math.floor((Math.random() * this.defaultArr.length))];
-
     let child = this.selection.getElementsByClassName(this.compSelection)
     child[0].classList.add('selected');
     return this.compSelection;

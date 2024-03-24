@@ -1,30 +1,42 @@
 <app-header></app-header>
 <main>
- 
   <div class="container">
     <h1 class="center-align">{{ title }}!</h1>
     <div class="game-start center-align">
-      <p>To start, generate a new word</p>
+      <p>To start, choose a difficulty level and generate a new word</p>
+
+      <mat-button-toggle-group
+        [formControl]="difficultyLevel"
+        aria-label="difficulty level"
+      >
+        <mat-button-toggle value="1">Easy</mat-button-toggle>
+        <mat-button-toggle value="2">Medium</mat-button-toggle>
+        <mat-button-toggle value="3">Difficult</mat-button-toggle>
+        <mat-button-toggle value="0">Any</mat-button-toggle>
+      </mat-button-toggle-group>
+      <br />
       <button mat-stroked-button color="accent" (click)="getRandomWord()">
         Generate word
       </button>
-      @if(isScramble){
+    </div>
+    @if(isScramble){
+    <div class="random-word-container center-align">
+      @if(tryAgain){
+      <p class="tryAgain" matRipple [matRippleUnbounded]="true">Try again</p>
+      }
+      <mat-form-field class="input-field" color="accent">
+        <mat-label>Your Guess</mat-label>
+        <input (keyup.enter)="checkWord()" matInput [formControl]="wordForm" />
+      </mat-form-field>
+
       <button
         class="align-right"
         mat-stroked-button
         color="primary"
         (click)="checkWord()"
       >
-        Check</button
-      >}
-    </div>
-    @if(isScramble){
-    <div class="random-word-container center-align">
-      <mat-form-field class="input-field" color="accent">
-        <mat-label>Your Guess</mat-label>
-        <input (keyup.enter)="checkWord()" matInput [formControl]="wordForm" />
-      </mat-form-field>
-
+        Check
+      </button>
       <div>
         <span
           class="random-word center-align"
