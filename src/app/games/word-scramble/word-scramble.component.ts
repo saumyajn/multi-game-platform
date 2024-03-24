@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, Inject, Input } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,6 +8,7 @@ import { MaterialModule } from '../../material.module';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRipple } from '@angular/material/core';
 
 @Component({
   selector: 'app-word-scramble',
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './word-scramble.component.scss'
 })
 export class WordScrambleComponent {
+  @ViewChild(MatRipple) ripple: MatRipple;
 
   title = '';
 
@@ -53,14 +55,27 @@ export class WordScrambleComponent {
   }
 
   shuffleWord(word: string) {
-    return word.split('').sort(() => Math.random() - 0.5)
+    let shuffled = word.split('').sort(() => Math.random() - 0.5)
+    if (shuffled === word.split(''))
+      this.shuffleWord(shuffled.join(''))
+    return shuffled;
   }
 
 
   checkWord() {
     console.log(this.wordForm.value, this.randomWord);
+    
     if ((this.wordForm.value).toLowerCase() !== (this.randomWord).toLowerCase()) {
+
       this.tryAgain = true;
+
+      if (this.ripple)
+        this.ripple.launch({
+          radius: 40, centered: true, color: 'rgb(204,51,0,0.4)', animation: {
+            enterDuration: 200,
+            exitDuration: 200
+          }
+        })
     }
     else {
       this.shuffledWordArr = this.randomWord.split('');
@@ -70,6 +85,7 @@ export class WordScrambleComponent {
       this.tryAgain = false;
       dialogRef.afterClosed().subscribe(result => {
         console.log(result)
+        this.wordForm.patchValue('')
         if (result.event == 'nextWord') {
           this.getRandomWord();
         }

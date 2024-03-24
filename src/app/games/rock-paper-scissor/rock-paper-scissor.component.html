@@ -3,16 +3,19 @@
   <h1 class="center-align">{{ title }}!</h1>
   <div class="container">
     @if(showUserSelection) {
-      <div class="selected center-align">
-        <p>You selected {{ userSelection }}!  Computer got {{ compSelection }}
-        !</p>
-        <span> {{ winner }} </span>
-      </div>
-      }
+    <div class="selected center-align">
+    
+      <h2>{{ winner }}</h2>
+    </div>
+    }
+    <br>
     <div class="row">
       <div class="user-selection">
         <div class="center-align">
-          <h3>You</h3>
+          <h3>You
+          @if(showUserSelection){
+          <span class="selected">: {{ userSelection.toUpperCase() }}</span>
+          }</h3>
           <p class="score center-align">{{ userScore() }}</p>
         </div>
         <div class="row">
@@ -41,7 +44,10 @@
       <!-- <div class="divider" role="separator" aria-label="Divider"></div> -->
       <div class="comp-selection">
         <div class="center-align">
-          <h3>Computer</h3>
+          <h3>Computer
+            @if(showUserSelection){
+            <span class="selected">: {{ compSelection.toUpperCase() }}</span>
+            }</h3>
           <p class="score">{{ compScore() }}</p>
         </div>
         <div class="row">
@@ -68,7 +74,6 @@
         </div>
       </div>
     </div>
-   
 
     <div class="center-align reset-button">
       <button mat-stroked-button color="primary" (click)="resetData()">

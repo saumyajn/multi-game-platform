@@ -22,11 +22,17 @@
     @if(isScramble){
     <div class="random-word-container center-align">
       @if(tryAgain){
-      <p class="tryAgain" matRipple [matRippleUnbounded]="true">Try again</p>
+      <p class="tryAgain" matRipple>Try again</p>
       }
       <mat-form-field class="input-field" color="accent">
         <mat-label>Your Guess</mat-label>
-        <input (keyup.enter)="checkWord()" matInput [formControl]="wordForm" />
+        <input (keyup.enter)="checkWord()" matInput [formControl]="wordForm"/>
+        @if (wordForm.value) {
+          <button matSuffix mat-icon-button aria-label="Clear" (click)="wordForm.patchValue('')">
+            <mat-icon>close</mat-icon>
+          </button>
+        }
+       
       </mat-form-field>
 
       <button

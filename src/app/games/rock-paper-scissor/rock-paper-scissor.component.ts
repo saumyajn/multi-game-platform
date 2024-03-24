@@ -48,8 +48,10 @@ export class RockPaperScissorComponent {
   runRandomGame() {
 
     this.compSelection = this.compSelection = this.defaultArr[Math.floor((Math.random() * this.defaultArr.length))];
-    let child = this.selection.getElementsByClassName(this.compSelection)
-    child[0].classList.add('selected');
+    if (this.selection) {
+      let child = this.selection.getElementsByClassName(this.compSelection)
+      child[0].classList.add('selected');
+    }
     return this.compSelection;
   }
 
@@ -67,10 +69,14 @@ export class RockPaperScissorComponent {
       this.compScore.update(val => val + 1);
       this.winner = 'Computer wins! Better Luck next time '
     }
-    setTimeout(()=>{
-      let child = this.selection.getElementsByClassName(this.compSelection)
-      child[0].classList.remove('selected');
-    },2000)
+    if (this.selection) {
+      setTimeout(() => {
+
+        let child = this.selection.getElementsByClassName(this.compSelection)
+        child[0].classList.remove('selected');
+
+      }, 1500)
+    }
   }
   resetData() {
 
